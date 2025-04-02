@@ -1,9 +1,6 @@
 package com.example.demo.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,5 +26,9 @@ public class Book {
     private int availableCopies;
 
     private int totalCopies;
+
+    @ManyToOne
+    @JoinColumn
+    private User user;
 
 }
