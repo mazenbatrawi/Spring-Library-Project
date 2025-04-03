@@ -39,4 +39,8 @@ public class BookService {
     public void deleteBookBySerialNumber(String serialNumber) {
         bookRepository.deleteById(serialNumber);
     }
+
+    public Book updateBook(Book book) {
+        return bookRepository.save(book);
+    }
 }

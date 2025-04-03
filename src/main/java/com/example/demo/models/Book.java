@@ -1,9 +1,12 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -29,6 +32,11 @@ public class Book {
 
     @ManyToOne
     @JoinColumn
+    @JsonIgnore
     private User user;
+
+    @OneToMany(mappedBy = "book")
+    @JsonIgnore
+    private List<Borrow> borrows;
 
 }

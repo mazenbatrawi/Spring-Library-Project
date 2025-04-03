@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -39,6 +40,11 @@ public class User {
     private String lastName;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<Book> books;
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Borrow> borrows;
 
 }
